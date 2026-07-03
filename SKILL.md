@@ -158,3 +158,7 @@ blastogene:
 - 暴躁因子新增 Feishu Bridge Ingress：DM/group/topic/comment 准入、require mention、静默忽略与 invite-required 判定。
 - 新增模块：`blastogene/feishu_bridge_ingress.py`
 - 来源模式：飞书/Lark 消息入口、本地 Claude/Codex 执行、会话 fingerprint、profile 隔离与安全门禁。
+
+## Generic orchestration event cards
+
+Adds product-neutral event card payload builders for runtime health and task-flow alerts, with HTTPS-only detail links.
