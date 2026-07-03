@@ -8,7 +8,7 @@ triggers:
   - 群活跃度
   - 社群健康度
   - blastogene
-version: 1.0.0
+version: 1.1.0
 author: AtomCollide
 tags: [feishu, community, analytics, monitoring, dashboard]
 ---
@@ -131,3 +131,8 @@ blastogene:
 - 历史回补仅限"飞书当前可见窗口内"
 - 统计口径标注"接入后累计"
 - 不承诺恢复系统接入前全部历史数据
+
+## 2026-07-03 运行时增强
+
+- 新增社群消息改写守卫：保护链接和关键术语，输出适合告警卡片的压缩文本。
+- 验证：新增模块通过 py_compile 和定向 pytest，代码不依赖外部服务。
