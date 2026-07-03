@@ -1,12 +1,25 @@
 {
   "repo": "blastogene",
-  "entrypoints": [],
+  "entrypoints": [
+    "blastogene/collector.py",
+    "blastogene/classifier.py",
+    "blastogene/alerter.py",
+    "blastogene/dashboard.py",
+    "blastogene/notifier.py"
+  ],
   "smoke_targets": [
     "blastogene/context_rewrite_guard.py",
+    "blastogene/community_ops_alert_cards.py",
+    "blastogene/feishu_ops_ingress.py",
     "scripts/product_convergence_gate.py"
   ],
   "known_external_reference_files": [
     "scripts/product_convergence_gate.py"
   ],
-  "policy": "External/fusion references are allowed only when explicitly reviewed here; new fusion work must add a smoke target or entrypoint wiring."
+  "policy": "Cross-cutting runtime/bridge/workflow modules must be domain-mapped and referenced by declared entrypoints or smoke targets; generic orphan modules fail the convergence gate.",
+  "domain_mappings": {
+    "blastogene/community_ops_alert_cards.py": "Blastogene community ops alert cards for group monitoring events",
+    "blastogene/feishu_ops_ingress.py": "Blastogene Feishu group ingress policy and message normalization",
+    "blastogene/workflow_engine.py": "Blastogene community operations workflow routing"
+  }
 }

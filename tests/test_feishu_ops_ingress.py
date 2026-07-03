@@ -1,4 +1,4 @@
-from blastogene.feishu_bridge_ingress import BridgeMessage, FeishuBridgeIngress, IngressPolicy
+from blastogene.feishu_ops_ingress import BridgeMessage, FeishuBridgeIngress, IngressPolicy
 
 
 def test_ingress_silently_ignores_unmentioned_group_message():

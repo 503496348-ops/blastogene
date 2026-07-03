@@ -13,7 +13,7 @@ def validate_detail_url(url: str | None) -> bool:
     return parsed.scheme in ALLOWED_DETAIL_SCHEMES and bool(parsed.netloc)
 
 
-def build_orchestration_event_card(title: str, status: str, content: str, detail_url: str | None = None) -> dict:
+def build_community_ops_alert_card(title: str, status: str, content: str, detail_url: str | None = None) -> dict:
     if not validate_detail_url(detail_url):
         raise ValueError("detail_url must be an absolute https URL")
     elements = [{"tag": "div", "text": {"tag": "lark_md", "content": content}}]
