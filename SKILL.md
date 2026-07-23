@@ -37,7 +37,8 @@ tags: [feishu, community, analytics, monitoring, dashboard]
 ### 1. 安装依赖
 
 ```bash
-cd ~/.hermes/skills/blastogene
+# 在仓库根目录执行
+cd /path/to/blastogene
 pip install -r requirements.txt
 ```
 
@@ -107,7 +108,8 @@ Web看板 → 读取统计表 → 可视化展示
 ```yaml
 blastogene:
   database:
-    path: ~/.hermes/data/blastogene.db
+    # 默认相对数据目录；可用环境变量覆盖绝对路径
+    path: ${BLASTOGENE_DB:-./data/blastogene.db}
   monitoring:
     groups:
       - oc_xxxxxxxxxxxxxxxx
