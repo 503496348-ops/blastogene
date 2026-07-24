@@ -1,6 +1,10 @@
 ---
 name: blastogene
 description: "社群运维工具 — 消息监控、情感分析、告警管理、指标聚合"
+license: MIT
+metadata:
+  author: 503496348-ops
+  version: 1.0.0
 triggers:
   - "社群"
   - "监控"
