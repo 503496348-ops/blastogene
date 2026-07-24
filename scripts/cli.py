@@ -3,42 +3,42 @@
 import argparse, json, sys, os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
-def cmd_monitor(args):
+def cmd_monitor(args) -> None:
     """Start message monitoring."""
     from blastogene.storage import MessageStore
     store = MessageStore()
     print(json.dumps({"store": type(store).__name__, "status": "monitoring_started"}, ensure_ascii=False, indent=2))
 
-def cmd_alert(args):
+def cmd_alert(args) -> None:
     """Send test alert."""
     from blastogene.alerter import AlertManager, create_alert_manager
     manager = create_alert_manager()
     print(json.dumps({"alert_manager": type(manager).__name__, "status": "ok"}, ensure_ascii=False, indent=2))
 
-def cmd_stats(args):
+def cmd_stats(args) -> None:
     """Show monitoring statistics."""
     from blastogene.aggregator import MetricsAggregator
     agg = MetricsAggregator()
     print(json.dumps({"aggregator": type(agg).__name__, "status": "ok"}, ensure_ascii=False, indent=2))
 
-def cmd_analyze(args):
+def cmd_analyze(args) -> None:
     """Analyze message sentiment."""
     from blastogene.sentiment import analyze_message, get_analyzer
     text = args.text or ''
     result = analyze_message(text)
     print(json.dumps({"text": text[:100], "result": str(result)[:300], "status": "ok"}, ensure_ascii=False, indent=2))
 
-def cmd_init_db(args):
+def cmd_init_db(args) -> None:
     """Initialize database."""
     from scripts.init_db import main as init_main
     init_main()
     print(json.dumps({"status": "db_initialized"}, ensure_ascii=False))
 
 
-def cmd_info(args):
+def cmd_info(args) -> None:
     """Show product info."""
     print(json.dumps({"product": "Blastogene", "type": "社群运维工具", "status": "ok"}, ensure_ascii=False, indent=2))
-def main():
+def main() -> None:
     p = argparse.ArgumentParser(description='Blastogene 暴躁因子社群运维工具')
     sub = p.add_subparsers(dest='command')
 
